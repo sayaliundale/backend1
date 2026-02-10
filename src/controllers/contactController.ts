@@ -1,6 +1,7 @@
-const { sendMail } = require("../services/emailService");
+//const { sendMail } = require("../services/emailService");
+import { sendMail } from "../services/emailService";
 
-const sendContactMessage = async (req, res) => {
+const sendContactMessage = async (req: any, res: any) => {
   try {
     const { name, email, subject, message } = req.body;
 
@@ -12,10 +13,10 @@ const sendContactMessage = async (req, res) => {
 
     res.status(200).json({ message: "Message sent successfully" });
   } catch (err) {
-    console.error("EMAIL ERROR 👉", err); 
+    console.error("EMAIL ERROR 👉", err);
     res.status(500).json({ error: "Failed to send message" });
   }
 };
 
 
-module.exports = { sendContactMessage };
+export { sendContactMessage };

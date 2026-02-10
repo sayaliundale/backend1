@@ -1,7 +1,9 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const contactRoutes = require("./routes/contactRoute");
+//require("dotenv").config();
+import dotenv from "dotenv";
+dotenv.config();
+import express from "express";
+import cors from "cors";
+import contactRoutes from "./routes/contactRoute";
 
 const app = express();
 
@@ -20,4 +22,4 @@ app.use(express.json());
 /* ✅ ROUTES */
 app.use("/api/contact", contactRoutes);
 
-module.exports = app;
+export default app;
