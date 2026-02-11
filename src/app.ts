@@ -8,11 +8,16 @@ import contactRoutes from "./routes/contactRoute.js";
 
 const app = express();
 
-const allowedOrigins = env.ALLOWED_ORIGINS;
+const allowedOrigins = env.ALLOWED_ORIGINS ? env.ALLOWED_ORIGINS.split(',') : [];
+const defaultOrigins = [
+    'https://t-beta-jade.vercel.app',
+    'http://localhost:5173',
+    'http://localhost:3000'
+];
 
 app.use(
     cors({
-        origin: allowedOrigins,
+        origin: [...allowedOrigins, ...defaultOrigins],
         credentials: true,
     })
 );
