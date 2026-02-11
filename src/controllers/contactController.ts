@@ -1,5 +1,5 @@
 //const { sendMail } = require("../services/emailService");
-import { sendMail } from "../services/emailService";
+import { sendMail } from "../services/emailService.js";
 
 const sendContactMessage = async (req: any, res: any) => {
   try {
